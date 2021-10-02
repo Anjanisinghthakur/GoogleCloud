@@ -1,0 +1,71 @@
+                                                                Compute Engine(gcloud compute)
+                                                                Instances are Zonal
+                                                                Monitoring is Automatically enabled
+                                                                
+                                                                hosting a site using virtual machine
+                                                                (Setting up http server)
+                                                                create vm->ssh into it
+                                                                1)sudo su
+                                                                2)apt update
+                                                                3)apt install apache2
+                                                                4)cd /
+                                                                5)cd /var/www/html
+                                                                6)echo "Hello $(hostname) and intenal ip $(hostname -i)" > index.html
+                                                                7)type url http://352.104.0.0(Extenal ip of machine)
+                                                                
+                                                                IP addresses:
+                                                                1)External ip addresses: it is internet addressable
+                                                                Cant have two resources with same ip(external)
+                                                                Note: whenever you stop vm instance external ip is lost and when started 
+                                                                again then new external ip assigned
+                                                                2)Intenal ip:2 corporate networks can have same internal ip
+                                                                
+                                                                
+                                                                Types of external ip:
+                                                                1)Ephemeral: will change once vm is stopped(is default in GCP)
+                                                                2)Static ip:Will not be changed even when machine is stopped
+                                                                We can reserve static ip for vm in network service(search external ip in 
+                                                                console)
+                                                                Billed for it even if youre using (for vm) or even not using, so release 
+                                                                whenever not using static ip
+                                                                
+                                                                Startup Script(setting up http server)
+                                                                (Directly installing apache2 in vm white starting without ssh)
+                                                                
+                                                                While creating vm
+                                                                #!/bin/bash
+                                                                apt update
+                                                                apt -y install apache2
+                                                                echo "Hello $(hostname) and intenal ip $(hostname -i)" > /var/www/html/
+                                                                index.html
+                                                                
+                                                                                                         
+                                                                Instance Templates: are global
+                                                                suppose you wanna create multiple vms then everytime you will have to 
+                                                                setup 
+                                                                startup script etc
+                                                                once created cant be changed(You can duplicate though)
+                                                                cant delete if used by vm or instance group
+                                                                using that instance template we can create instance group ot vm
+                                                                
+                                                                Machine image: are global
+                                                                Hardened images: used to create secure vm instances
+                                                               
+                                                               
+                                                               Creating image of disk from an instance(Custom disk images)
+                                                               Remember: cant create imge of disk from running instance, gotta stop the
+                                                               instance first ie, if created then corrupted image is created
+                                                                
+                                                                Preemptible VMs
+                                                                #Short lived vms
+                                                                #used for non-time critical fault tolerant batch program
+                                                                #cheap
+                                                                #Are stopped by GCP anytime within 24 hours
+                                                                #No automatic restarts
+                                                                #free tier credits not applicable
+                                                                
+                                                                
+                                                                Local SSD: content doesnt last when VM terminates
+                                                                Standard/Persistent SSD:PErmanent
+                                                                
+                                                                

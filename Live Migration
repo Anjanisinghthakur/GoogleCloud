@@ -1,0 +1,4 @@
+Live migration:
+Used when Host system needs to be updated(Hardware or software update) when the Vm instances are running.
+Not supported for preemptible vms
+

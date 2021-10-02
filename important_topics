@@ -1,0 +1,81 @@
+
+
+
+
+
+Projects
+
+How to create projects.
+Linking projects with the billing accounts.
+How to list and describe the existing configurations.
+How to create and manage projects via CLI.
+Billing Accounts
+
+Required roes to create and manage the billing accounts. 
+Understanding the relation between Billing accounts & Projects & Organizations.
+Setting up billing exports to estimate daily/monthly charges.
+
+IAM
+
+How to list and describe the roles using CLI.
+How to filter the roles and members using GCP console.
+
+Compute Engine
+
+The understanding of market place uses cases.
+Auto-scaling types When to use External IP address.
+Importance of metadata and labels.
+High availability.
+Understanding Managed and Unmanaged instance groups.
+
+VPC – Networking
+
+How to configure firewalls and use cases.
+Shared VPC.
+VPC peering vs VPN vs Interconnect.
+Types of load balancers and use cases.
+
+
+Kubernetes Engine
+
+The deployment process of docker file.
+How to create a docker file and understanding of container registry.
+Autoscaling in Kubernetes.
+Deploying a container application to Google Kubernetes Engine using pods.
+Configuring Google Kubernetes Engine application monitoring and logging.
+
+
+App Engine
+
+How to deploy applications on App Engine using CLI.
+Use cases on App Engine Versions functionality.
+How to split the traffic between multiple versions in the App Engine. 
+
+Cloud Storage (Object-based)
+
+storage classes.
+Multi-regional vs Regional vs Nearline vs Coldline.
+Changing or conversion of storage classes. 
+Automatic deletion of objects and Objects transfer between the different storage classes using lifecycle policies.
+Planning and configuring data storage options (Cloud SQL, BigQuery, Cloud Spanner, Cloud Bigtable).
+
+
+Databases
+
+Relational databases: SQL vs Spanner.
+When to use BigQuery and Cloud Bigtable.
+Initializing data systems with products (e.g., Cloud SQL, Cloud Datastore, BigQuery, Cloud Spanner, Cloud Pub/Sub, Cloud Bigtable, Cloud Dataproc, Cloud Dataflow, Cloud Storage)
+
+Bigdata Tools
+
+Difference between Dataproc vs Dataflow.
+Questions based on Pub/Sub use cases and integration with other services
+Data Analytics tools use cases.
+
+
+Stackdriver
+
+Importance of Stackdriver in the Google cloud and how it works
+Creating and configuring the workspaces
+Creating Stackdriver alerts based on resource metrics
+How to add projects form different GCP accounts to single Stackdriver account via GCP console

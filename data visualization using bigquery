@@ -1,0 +1,80 @@
+                                                                       BigQuery         
+                                                                       
+                                                                Bigquery is basicaaly used for:
+                                                                     #Online Analytical processing(OLAP)
+                                                                     #it is datawarehousing solution
+                                                                     #you append the data mostly
+                                                                     #supports sql query
+                                                                     #data visualization
+                                                                                                                       
+                                                            Data visualization using bigquery
+Go to google cloud console-                                               
+APIs used-
+#for storing table-big query
+#for data visualization-datastudio Api
+
+1)Enable big query API and data studio API
+
+2)Go to big query. select project, create dataset(it is like database which contain all tables). Click on dataset(database) and create table
+
+3)You can create table by specifying fields or you can import from 4 sources -
+  *Local system
+  *google drive
+  *google cloud storage
+  *google cloud bigtable
+  
+4) Remember bigquery supports 5 types of files- csv, json, avro, orc, parquet (not excel files)
+
+5) select table->preview
+
+6) go to https://datastudio.google.com/->create->datasource->select connector(in this case bigquery)->select project, dataset(database) and table->select connect->create report
+
+7) Boom visualize data
+
+
+                                                        Bq commands:
+use cloud shell
+
+1)Command to show all the dataset(like database) present in particular project 
+#if project id set on gcloud shell
+bq ls
+#if not set then
+bq ls keep-trying-82:
+
+2)Command to create dataset
+bq mk dataset1
+
+3)See all tables present in particular dataset
+bq ls dataset1
+
+4)Query to see contents of table
+
+bq query "select * from datasetname.tablename"
+
+5) to remove dataset
+bq rm dataset1
+
+6) to force remove dataset
+bq rm -r dataset1
+
+7) loading the table in dataset(db)
+bq load babynames.names2010 yob2010.txt name:string,gender:string,count:integer
+
+The bq load command arguments:
+
+datasetID: babynames
+tableID: names2010
+source: yob2010.txt: if necessary, include the full path to the file
+schema: name:string,gender:string,count:integer
+
+8) command to show table description like (number of bytes etc)
+Syntax:
+bq show PROJECT_ID:DATASET_ID.TABLE_ID
+Example:
+bq show keep-trying-82:sample.table1
+
+
+
+
+
+

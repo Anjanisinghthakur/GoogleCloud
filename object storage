@@ -1,0 +1,60 @@
+                                            Object Storage(Buckets)
+                                            
+Cloud Storage is Serverless And has autoscaling feature
+Go to Console->Cloud Storge->create bucket
+                                        
+1)Buckets are like files where we can upload files from local system. Used to store files and folders in form of objects.
+2)We can also set Retention policy-means we cant delete (bucket or object) for that time (8000 sec). However the bucket can be deleted if it doesnt hold any object(files,folders,etc)
+
+Storage Classes: U can update storage class of a bucket
+#standard
+#NEarline
+#ColdLine
+#Archive
+
+                                                          Object Lifecycle mgmt
+3) Lifecycle rules: Used to change the storage bucket to Nearline,Coldline or delete if not accessed within time.
+there are two things here:
+>Object Conditions(like age, Live state etc) on the basis of which action will be processed.
+>Action(like move to nearline,coldline or delete if condition becomes true(for ex not accessed for 30 days then move to coldline)
+
+Action type:SetStorageClass and Delete
+#After creating bucket->Lifecycle(Click on None)->add rule
+#Select Condition and action->create
+
+
+
+Example:Following will be shown on rules
+Action                 Object condition
+Set to Coldline	30+ days since object was updated
+
+
+GCF(Google Cloud Storage) files(java function etc) are automatically stored in cloud storage(buckets)
+                                                              
+                                                             gsutil: CLI for Bucket
+Create Bucket:
+gsutil mb gs://my_bucket_please
+                                                    
+To list all buckets
+gsutil ls
+
+List all object in bucket
+gsutil ls gs://my-bucket-first/
+
+Copy object from 1 bucket to another
+gsutil cp gs://my-bucket-first/index.html gs://my_bucket_please/
+
+Move object: gsutil mv
+
+Change storage class for object
+gsutil  rewrite -s Storage_class
+
+upload and Downloads
+gsutil cp
+
+Giving Permissions
+gsutil iam ch allUsers:objectViewer gs://my-bucket-first/ 
+
+Giving acces to users for specific minute
+
+

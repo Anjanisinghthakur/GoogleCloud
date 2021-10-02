@@ -1,0 +1,62 @@
+ 
+ One app per project:
+ 1)Choose one region since there is one app
+ 2)Enable API: App Engine  Admin API
+ 3)App is create now start deploying services(micro) in app engine
+ 
+ Deploying service:
+ 1)Open cloud shell Editor
+ 2)open folder->drag and drop the app(java, python) along with yaml file from local system to cloud editor
+ 3)cd default-service->folder containing app.yaml and app.py
+ 4)gcloud init
+ 5)gcloud app deploy(since we didnt specify version, the version will be default)
+ 6)gcloud app browse(to get link for the app)
+ URl format for the app:
+ https://versionid-dot-projectid.regionid.r.appspot.com(for specific service)
+ https://projectid.regionid.r.appspot.com(for default version)
+ 7) go to console app engine ->see services and versions
+ 8)start splittin and migrating traffic between versions
+ 
+ Note: App engine makes use of cloud bucket(object storage ) to store files(python,yaml,txt) of app as objects, so give storage object viewer permission.
+ 
+ 
+                                      Commands: all commands starts with gcloud app
+                                      cd default-service
+gcloud app deploy
+gcloud app services list
+gcloud app versions list
+gcloud app instances list
+gcloud app deploy --version=v2
+gcloud app versions list
+gcloud app browse
+gcloud app browse --version 20210215t072907
+gcloud app deploy --version=v3 --no-promote(traffic will not be switched to v3, i.e traffic will still be going to old version, by default traffic is switched i.e., promote)
+gcloud app browse --version v3
+gcloud app services set-traffic --split=v3=.5,v2=.5
+gcloud app services set-traffic --splits=v3=.5,v2=.5
+watch curl https://melodic-furnace-304906.uc.r.appspot.com/
+gcloud app services set-traffic --splits=v3=.5,v2=.5 --split-by=random
+ 
+cd ../my-first-service/
+gcloud app deploy
+gcloud app browse --service=my-first-service
+ 
+gcloud app services list
+gcloud app regions list
+ 
+gcloud app browse --service=my-first-service --version=20210215t075851
+gcloud app browse --version=v2
+gcloud app open-console --version=v2
+gcloud app versions list --hide-no-traffic
+
+Remember: Version name can be anything, like anjani, rudra, v1,v2
+Default service cannot be deleted but can be stopped
+
+                                       Ways of Splitting traffic
+1)IP Splitting(default)
+2)Cookie splitting
+3)Random splitting
+    
+ 
+                                            app.yaml file
+ It is Configuration file where runtime(like python, java), versions, services, env_variables, automatic scaling(auto, basic, manual) etc is specified.

@@ -1,0 +1,23 @@
+                                                                   Sql
+                                                 # it is not serverless
+                                                 # by default one backup for server is always created
+          Go to console->SQL->create instance->choose(mysql,postgresql,mysql server)
+          Important Note: In order to create table in databases(which you will create from console) you have to use cloud shell. Table inside databases cant be created from console
+          
+                       Users:go to console->
+                       By default root user is always there
+                       Creating users-users-> create user with password for accessing sql server(in my case user1 and password)
+                    
+                       Databases: Users will have access to databases, you can create databases from console but connect through cloud     shell using user1 you created
+                       
+                       Connect to sql from cloud shell
+                      1) First off enable API-Cloud SQL Admin API
+                       2) connect in shell command 
+                       gcloud sql connect my-first-sql --user=user1 --quiet
+                       3)Will ask for password for user1 that you created
+                       4)Boom connected to SQL(just like local sql you used in java project)
+                       5) you can execute all sql queries through shell(mysql>)
+                       6) create table using query
+                       
+                       Logs->contain operations that you performed like
+                       user creation, database creation, update etc

@@ -1,0 +1,34 @@
+                                                        Cost Optimization
+                                                        Sustained use discounts:
+                                                        This is automatic discount for running vm instances for significant portion of 
+                                                        billing month. This is automatic once you login to gcp, no action required from our 
+                                                        side.
+                                                        Applicable for: # Compute Engine # Kubernetes Engine
+                                                        Restrictions
+                                                        # doesnt apply for E1 and E2 machine types
+                                                        # Doesnt apply for Vm created by app engine flexible and datafflow
+                                                        
+                                                        Committed use discounts: when resources are used for a long time(constant workloads)
+                                                        applicable for Workloads with predictable resource needs
+                                                        duration: 1-3 year
+                                                        Restrictions
+                                                        # doesnt apply for E1 and E2 machine types
+                                                        # Doesnt apply for Vm created by app engine flexible and dataflow
+                                                        
+                                                        Recommendation Engines: notifies you of underutilized instancees.
+                                                        
+                                                        Billing
+                                                        Not Billed ffor stopped vms, but will be billed for storage, cpus etc
+                                                        
+                                                        Budget alerts:
+                                                        Alets when target budget is reached(overflow)
+                                                        
+                                                        Budget Exports:
+                                                        
+                                                        Google Cloud Pricing Calculator:
+                                                        It is used to estimate the cost of your solution
+                                                        On google type ->google cloud pricing calculator
+                                                        go to site give details and get prices for the services youre using
+                                                        
+                                                        
+                                                        

@@ -1,0 +1,148 @@
+                                                                 Kubernetes(K8S)
+     Task: To deploy app from docker hub(image) in form of container in nodes of cluster
+      Steps:                                                           
+     1)go to console->Kebernetes Engine-> Create Cluster->Slect nodes(number of Vms where docker is installed )
+     2)open cloud shell->Connect to cluster using command
+     gcloud container clusters get-credentials kuber1 --zone us-central1-a --project keep-trying-82
+     
+     3)kubectl:Used to interact with cluster(like pods, rs, creating deployment, delete pods)
+     
+     4)Deploy app: kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
+     5)Expose it: kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
+     Here Deployment name:hello-world-rest-api and in28min/hello-world-rest-api:0.0.1.RELEASE is name of app in form of image on dockerhub.
+     6)On Kubernetes Console->Services and Ingress
+     7)Click on the deployment to see number of running pods
+     
+     Master node: only manages cluster
+     Worker node: Run apps
+     
+    # creating and deleting the cluster , getting credentials->gcloud container clusters
+    # increase the nodes or creating node pool->gcloud container cluster(node scaling->can also use autoscaling)
+     gcloud containers cluster resize name-of-cluster --node-pool default-pool --num-nodes=2
+     gcloud container node-pools list --zone=us-central1-a --cluster cluster-name
+    # deploy microservices, ->kubectl
+      
+                                         Common kubectl commands
+     7)Getting Number of Pods(instance)
+     kubectl get pods(pod is something which contains app): Suppose if 1 app is deployed then pod will be 1
+     hello-world-rest-api-687d9c7bc7-nkl4g   1/1     Running   0          14m
+     
+     8)Getting replicas set
+     kubectl get replicaset
+     
+     9) Getting Deployment
+     kubectl get deployment
+     NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+     hello-world-rest-api   1/1     1            1           18m
+     
+     10) Getting Services
+     kubectl get services
+     
+                                                   Pods and ReplicaSet
+     Pods:it is where containers run(group or single)
+     kubectl get pods -o wide
+     kubectl get pods 
+     kubectl describe pod hello-world-rest-api-687d9c7bc7-nkl4g->this is name of pod
+     (gives details of pod on which node its running,ip and how many containers it has)
+     
+     Replica Set: kubectl get rs
+     kubectl get rs -o wide
+     Makes sure that specific number of pods(instances) are always running(even after deleting)
+     Keeps monitoring the pods, if we set we would want to run atleast one pod running then if we kill the pod it creates replica
+     
+     Scaling replicaset: Setting value of replica(that means atleast how many pods should be running). When not scaled then number of     replicas=1
+     kubectl scale deployment hello-world-rest-api --replicas=3
+     (it adds 2 more pods or replicates)
+     
+     deployment name and container name:hello-world-rest-api (are same)
+     
+    Resetting the image for deployment(all the pods)
+    kubectl set image deployment hello-world-rest-api hello-world-rest-api=nginx
+    
+    Deleting Deployment:A deployment contain the pods(number of pods specified by number of replicas) having image(from dockerhub) of same application with different ids.
+    kubectl delete deployment hello-world-rest-api
+    Deleting rs:
+    kubectl delete rs hello-world-rest-api-7cf494d454->Name of rs
+    Deleting pods 
+    kubectl delete pod hello-world-rest-api-687d9c7bc7-txqwz->this is pod id
+    
+    Horizontal pod autoscaling(hpa)
+    kubectl autoscale deployment hello-world-rest-api --max=4 --cpu-percent=70
+    kubectl get hpa
+    
+    LoadBalancer: Balances traffic between pods(3 pods in this case). It is a service
+    Schedular: Assign pod to appropriate node(or schedules)  
+    
+                                                        Kubectl exec commands to get into pods
+      kubectl exec -it hello-world-rest-api-687d9c7bc7-7mzh8 -- sh
+      here, hello-world-rest-api-687d9c7bc7-7mzh8->pod name
+      kubectl exec -it nginx-deploy-pod1 -- sh
+      Remember: You cant get inside pod if it fails (not running)
+      
+      
+      
+                       Creating my own deployment(Remember while exposing the deployment port=8080,80,473)
+      1)Craete deployment
+      kubectl create deployment nginx-deploy --image=nginx
+      2)expose deployment(rememebr port mapping)
+      kubectl expose deployment nginx-deploy --type=LoadBalancer --port=80
+      3)Single pods will be up and running
+      nginx-deploy-8588f9dfb-d95lm
+      4)get into pod(exec)
+      kubectl exec -it nginx-deploy-8588f9dfb-d95lm -- sh
+      5)6)On Kubernetes Console->Services and Ingress->ip of deployment
+      
+      
+      Remember you cabn change the code once you get inside nginx pod(path of Code: /usr/share/nginx/html)
+     
+     
+     
+                                              Updating the microservice image for a deployment
+                                              
+                      kubectl set image deployment nginx-deploy nginx=bitnami/nginx-ingress-controller
+                      
+                      Here nginx-deploy=deployment name
+                      nginx->last microservice image name
+                      bitnami/nginx-ingress-controller->new microservice image name
+                      
+                      
+                      Kubernetes Services-
+               1)LoadBalancer(the one we created while exposing deployment): when we create service type LoadBalancer,lb will be created
+                 2)ClusterIP:used when You want your microservices to be available insde the cluster(Intra cluster communication) 
+                3)NodePort
+     
+                                         Container registry(GCR)
+     :It is just like Dockerhub, but in gcp where you can push yor microservice image
+     
+     
+     
+                                      Command1: gcloud container
+                                      
+         used for craeting, deleting adding nodes or node pool in a cluster
+         List images present in container registry
+         gcloud container images list         
+         
+                                     Command 2: kubectl  
+                                     used to get create, delete etc for pods/services/replica set
+                                     Creating deployment
+                                     creating/deleting service-Loadbalancer will be removed as welll cause its a service
+                                     exposing deployment
+                                     scaling pods(auoscaling ectc)
+                                     rollback a deployment                  
+     
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+          
+                                                                   

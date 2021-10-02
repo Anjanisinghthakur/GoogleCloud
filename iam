@@ -1,0 +1,80 @@
+Permissions
+
+1)to list all the permissions for particular project(id:keep-trying-82)
+
+    gcloud iam list-testable-permissions https://cloudresourcemanager.googleapis.com/v1/projects/keep-trying-82 
+
+
+2)permissions along with filter
+
+    gcloud iam list-testable-permissions https://cloudresourcemanager.googleapis.com/v1/projects/keep-trying-82 --filter='apiDisabled: true'
+    
+    
+Roles
+
+1)to list all roles
+
+   gcloud iam roles list
+ 
+2) roles with filter
+   
+   gcloud iam roles list --filter='stage: BETA'
+  
+3)Creating custom role(we can add other flags like --organization, --title etc)
+
+          gcloud iam roles create CustRole --project=keep-trying-82 --description="Created to test" 
+          --permissions=resourcemanager.projects.get,resourcemanager.projects.update 
+       
+ 4)Deleting roles
+ gcloud iam roles delete CustRole --project=keep-trying-82 
+ 
+ Note:Remember CustRole will be in delting state so we cant create role with roleid CustRole)
+ 
+ 5)Describing roles
+ 
+  gcloud iam roles describe CustRole1 --project=keep-trying-82
+  
+6) Describing curated roles:Starts with 'roles/' no need to specify projectid or org
+
+  gcloud iam roles describe roles/dialogflow.aamAdmin
+  
+  
+7)Listing roles for particular project
+
+   gcloud iam roles list --project=keep-trying-82
+   
+8)Undelete roles-Restoring them
+
+  gcloud iam roles undelete CustRole --project=keep-trying-82
+  
+9)updating Roles
+
+gcloud iam roles update CustRole2 --project=keep-trying-82 --permissions=accessapproval.requests.approve
+   
+   
+   
+   Service accounts
+
+1)List all service accounts
+
+gcloud iam service-accounts list
+
+2)Creating Service account
+
+cloud iam service-accounts create servic-1 --display-name="Created now"
+
+3)Deleting account
+
+gcloud iam service-accounts delete servic-1@keep-trying-82.iam.gserviceaccount.com
+
+4)Describe
+
+gcloud iam service-accounts describe servic-1@keep-trying-82.iam.gserviceaccount.com
+
+5)Disable/Enable
+
+gcloud iam service-accounts disable servic-1@keep-trying-82.iam.gserviceaccount.com
+gcloud iam service-accounts enable servic-1@keep-trying-82.iam.gserviceaccount.com
+
+6)getiam policy
+gcloud iam service-accounts get-iam-policy servic-1@keep-trying-82.iam.gserviceaccount.com
