@@ -30,6 +30,10 @@ Set to Coldline	30+ days since object was updated
 
 
 GCF(Google Cloud Storage) files(java function etc) are automatically stored in cloud storage(buckets)
+
+                                                            Object Versioning:
+#Stores the version of object for backup, if object is deleted by accident.
+#Enabled at bucket level, can be turned off/on at any time
                                                               
                                                              gsutil: CLI for Bucket
 Create Bucket:
