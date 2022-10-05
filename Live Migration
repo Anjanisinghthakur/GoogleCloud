@@ -2,3 +2,7 @@ Live migration:
 Used when Host system needs to be updated(Hardware or software update) when the Vm instances are running.
 Not supported for preemptible vms
 
+On Host Maintanance:
+->Migrate i.e., Migrate Vm to another host if current host is updated
+->Terminate i.e Stop the instance in case of Host updation
+
