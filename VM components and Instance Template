@@ -9,6 +9,11 @@ Virtaul Machine contains:
 ->Image
 ---Public Images
 ---Custom Images: When we use Startup script To install certain softwares in VMs, bootup time increases. In these cases we use Custom images with Software pre-installed
+It Can be created from:
+#Instance
+#Persistent Disk
+#Snapshot
+#Another OS image
 
 3)Storage
 ->PDs
