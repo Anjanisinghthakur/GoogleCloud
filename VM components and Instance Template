@@ -5,12 +5,14 @@ Virtaul Machine contains:
 ---Memory Optimized(Analytics)
 ---Compute Optimized(Gaming)
 
-->Software i.e., Operating System
----Image
+2)Software i.e., Operating System
+->Image
+---Public Images
+---Custom Images: When we use Startup script To install certain softwares in VMs, bootup time increases. In these cases we use Custom images with Software pre-installed
 
-->Storage
---PDs
---Local ssds
+3)Storage
+->PDs
+->Local ssds
 
 Instance Template
 Its like a Blueprint which conatins Machine Type, Image, Labels, Startup Script etc.
