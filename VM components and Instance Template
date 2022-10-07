@@ -1,0 +1,19 @@
+Virtaul Machine contains:
+1) Hardware
+->Machine Type/Family
+---General Purpose
+---Memory Optimized(Analytics)
+---Compute Optimized(Gaming)
+
+->Software i.e., Operating System
+---Image
+
+->Storage
+--PDs
+--Local ssds
+
+Instance Template
+Its like a Blueprint which conatins Machine Type, Image, Labels, Startup Script etc.
+Once Created cant be modified. 
+Hence Create Copy of it and then modify the copied version
+Its Global so no need to specify Zone or region
