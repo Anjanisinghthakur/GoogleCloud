@@ -26,3 +26,6 @@ Its like a Blueprint which conatins Machine Type, Image, Labels, Startup Script 
 Once Created cant be modified. 
 Hence Create Copy of it and then modify the copied version
 Its Global so no need to specify Zone or region
+
+Task-Create instance template from existing VM:
+gcloud compute instance-templates create ins-temp --source-instance=instance-1  --source-instance-zone=us-west4-b
