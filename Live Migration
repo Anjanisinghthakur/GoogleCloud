@@ -6,3 +6,8 @@ On Host Maintanance:
 ->Migrate i.e., Migrate Vm to another host if current host is updated
 ->Terminate i.e Stop the instance in case of Host updation
 
+
+Automatic restart:(On/Off)
+Compute Engine can automatically restart VM instances
+if they are terminated for non-user-initiated reasons (maintenance event, hardware failure, software failure and so on)
+
