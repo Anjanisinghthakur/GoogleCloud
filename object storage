@@ -4,7 +4,7 @@ Cloud Storage is Serverless And has autoscaling feature
 Go to Console->Cloud Storge->create bucket
                                         
 1)Buckets are like files where we can upload files from local system. Used to store files and folders in form of objects.
-2)We can also set Retention policy-means we cant delete (bucket or object) for that time (8000 sec). However the bucket can be deleted if it doesnt hold any object(files,folders,etc)
+2)Bucket lock-We can also set Retention policy-means we cant delete (bucket or object) for that time (8000 sec). However the bucket can be deleted if it doesnt hold any object(files,folders,etc)
 
 Storage Classes: U can update storage class of a bucket
 #standard
